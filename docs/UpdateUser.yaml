@@ -1,9 +1,17 @@
 paths:
-  /api/v1/esusu/users/register:
-    post:
+  /api/v1/esusu/users/{username}:
+    patch:
       tags:
         - users
-      summary: Register new users
+      summary: Update the profile of the user
+      parameters:
+        - in: path
+          name: username
+          required: true
+          example: yinkaenoch
+          description: Username of the user
+          schema:
+            type: string
       requestBody:
         required: true
         content:
@@ -11,29 +19,17 @@ paths:
             schema:
               type: object
               properties:
-                username:
-                  type: string
-                  description: Username for the user
-                  example: yinkaenoch
-                password:
-                  type: string
-                  description: User's password
-                  example: 1234567890
-                confirmPassword:
-                  type: string
-                  description: confirm User's password
-                  example: 1234567890
                 firstName:
                   type: string
-                  description: User's first name
+                  description: First name of the user
                   example: Yinka
                 lastName:
                   type: string
-                  description: User's last name
+                  description: Last name of the user
                   example: Enoch
                 email:
                   type: string
-                  description: User's email address
+                  description: Email address of the user
                   example: demo@example.com
       responses:
         200:

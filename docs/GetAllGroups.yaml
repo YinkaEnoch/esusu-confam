@@ -1,0 +1,42 @@
+paths:
+  /api/v1/esusu/groups/:
+    get:
+      tags:
+        - groups
+      summary: Get all public groups
+      responses:
+        200:
+          description: Success response from the server
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    example: 0
+                  type:
+                    type: string,
+                    example: OK
+                  message:
+                    type: string
+                    example: New user successfully created
+                  data:
+                    type: string
+                    example: {}
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    example: 1
+                  type:
+                    type: string
+                    example: ERR
+                  message:
+                    type: string
+                    example: Server Error
