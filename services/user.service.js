@@ -37,17 +37,11 @@ const UpdateUser = async (props) => {
   try {
     const { username, ...info } = props;
 
-    console.log(username);
-    console.log({ info });
-    console.log({ ...info });
-
     const doc = await User.findOneAndUpdate(
       { username },
       { $set: info },
       { new: true }
     );
-
-    console.log(doc);
 
     if (!doc)
       return {

@@ -3,6 +3,7 @@ import {
   GetGroup as GetGroupService,
   GetAllGroups as GetAllGroupsService,
   JoinGroup as JoinGroupService,
+  GroupDeposit as GroupDepositService,
 } from "#Services/group.service.js";
 import respService from "#Utils/responseService.util.js";
 
@@ -28,6 +29,16 @@ const JoinGroup = async (req, res) => {
   });
   respService({ resp, res, statusCode: 200 });
 };
+
+const GroupDeposit = async (req, res) => {
+  const resp = await GroupDepositService({
+    groupName: req.params.groupName,
+    username: req.body.validated.username,
+    amount: req.body.validated.amount,
+  });
+  respService({ resp, res, statusCode: 201 });
+};
+
 const UpdateGroup = async (req, res) => {};
 const DeleteGroup = async (req, res) => {};
 
@@ -36,6 +47,7 @@ export {
   GetGroup,
   GetAllGroups,
   JoinGroup,
+  GroupDeposit,
   UpdateGroup,
   DeleteGroup,
 };
