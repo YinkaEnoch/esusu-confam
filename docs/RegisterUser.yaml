@@ -1,9 +1,9 @@
 paths:
-  /api/v1/token/send:
+  /api/v1/esusu/users/register:
     post:
       tags:
-        - token
-      summary: Send issued token from one address to another
+        - register users
+      summary: Register new users
       requestBody:
         required: true
         content:
@@ -11,18 +11,30 @@ paths:
             schema:
               type: object
               properties:
-                sender:
+                username:
                   type: string
-                  description: Wallet address of the sender
-                  example: rP2Zr6kknRvrsHGgdsJhaw8dS1tbRRo1TE
-                senderSecret:
+                  description: Username for the user
+                  example: yinkaenoch
+                password:
                   type: string
-                  description: Wallet secret of the sender
-                  example: ssMo3cBcpfkw1uDei9bP8GyaHTQdT
-                amount:
-                  type: number
-                  description: Amount of token to send
-                  example: 200
+                  description: User's password
+                  example: 1234567890
+                confirmPassword:
+                  type: string
+                  description: confirm User's password
+                  example: 1234567890
+                firstName:
+                  type: string
+                  description: User's first name
+                  example: Yinka
+                lastName:
+                  type: string
+                  description: User's last name
+                  example: Enoch
+                email:
+                  type: string
+                  description: User's email address
+                  example: demo@example.com
       responses:
         200:
           description: Success message
@@ -34,9 +46,12 @@ paths:
                   code:
                     type: number
                     example: 0
+                  type:
+                    type: string,
+                    example: OK
                   message:
                     type: string
-                    example: success
+                    example: New user successfully created
                   data:
                     type: string
                     example: {}
@@ -49,9 +64,10 @@ paths:
                 properties:
                   code:
                     type: number
-                    description: Error code
                     example: 1
-                  error:
+                  type:
                     type: string
-                    description: Error message
-                    example: ValidationError
+                    example: ERR
+                  message:
+                    type: string
+                    example: Server Error

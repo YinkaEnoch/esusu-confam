@@ -28,7 +28,7 @@ UserSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
 
   try {
-    const saltNo = process.env.SALT || 10;
+    const saltNo = parseInt(process.env.SALT) || 10;
     const salt = await bcrypt.genSalt(saltNo);
     this.password = await bcrypt.hash(this.password, salt);
     return next();

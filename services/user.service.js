@@ -19,6 +19,16 @@ const GetUser = async (username) => {
 
 const CreateUser = async (props) => {
   try {
+    // Check if user exist
+    const user = await GetUser(props.username);
+
+    if (user.code == 0)
+      return {
+        code: 1,
+        type: "EEXISTS",
+        message: `Username [${props.username}] already exist`,
+      };
+
     const newUser = new User({ ...props });
     const savedUser = await newUser.save();
 
