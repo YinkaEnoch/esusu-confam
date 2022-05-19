@@ -1,0 +1,57 @@
+paths:
+  /api/v1/token/send:
+    post:
+      tags:
+        - token
+      summary: Send issued token from one address to another
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sender:
+                  type: string
+                  description: Wallet address of the sender
+                  example: rP2Zr6kknRvrsHGgdsJhaw8dS1tbRRo1TE
+                senderSecret:
+                  type: string
+                  description: Wallet secret of the sender
+                  example: ssMo3cBcpfkw1uDei9bP8GyaHTQdT
+                amount:
+                  type: number
+                  description: Amount of token to send
+                  example: 200
+      responses:
+        200:
+          description: Success message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    example: 0
+                  message:
+                    type: string
+                    example: success
+                  data:
+                    type: string
+                    example: {}
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    description: Error code
+                    example: 1
+                  error:
+                    type: string
+                    description: Error message
+                    example: ValidationError

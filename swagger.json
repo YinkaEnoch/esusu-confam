@@ -1,0 +1,13 @@
+{
+  "definition": {
+    "openapi": "3.0.3",
+    "info": {
+      "title": "Esusu Confam",
+      "description": "REST API documentation for Esusu Confam",
+      "version": "1"
+    },
+    "consumes": "application/json",
+    "produces": "application/json"
+  },
+  "apis": ["./docs/**/*.yaml"]
+}
