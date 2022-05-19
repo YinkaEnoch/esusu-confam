@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema(
     username: {
       type: String,
       required: true,
+      lowercase: true,
       unique: true,
     },
     password: { type: String, required: true },
@@ -17,6 +18,7 @@ const UserSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    groups: [{ type: mongoose.Schema.Types.ObjectId, ref: "Group" }],
   },
   { timestamps: true }
 );
