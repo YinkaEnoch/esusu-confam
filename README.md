@@ -20,4 +20,4 @@ Run `npm start dev` to start the app in development state
 
 ## Documentation
 
-The documentation is available on `/api/v1/docs`
+The documentation is available via `/api/v1/docs`

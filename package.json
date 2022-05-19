@@ -42,5 +42,9 @@
     "#Models/*": "./models/*",
     "#Services/*": "./services/*",
     "#Utils/*": "./utils/*"
+  },
+  "engines": {
+    "node": "14.18.1",
+    "npm": "8.1.0"
   }
 }
