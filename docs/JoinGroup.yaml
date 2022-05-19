@@ -1,0 +1,61 @@
+paths:
+  /api/v1/esusu/groups/{groupName}/join:
+    post:
+      tags:
+        - groups
+      summary: Join an existing group
+      parameters:
+        - in: path
+          name: groupName
+          required: true
+          example: yinka-group
+          description: Name of the group
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: Name of the user
+                  example: johndoe
+      responses:
+        200:
+          description: Success message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    example: 0
+                  type:
+                    type: string,
+                    example: OK
+                  message:
+                    type: string
+                    example: New user successfully created
+                  data:
+                    type: string
+                    example: {}
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    example: 1
+                  type:
+                    type: string
+                    example: ERR
+                  message:
+                    type: string
+                    example: Server Error

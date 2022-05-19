@@ -1,0 +1,65 @@
+paths:
+  /api/v1/esusu/groups/:
+    post:
+      tags:
+        - groups
+      summary: Create a new group
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                groupName:
+                  type: string
+                  description: Name of the group
+                  example: yinka-group
+                isPublic:
+                  type: boolean
+                  description: Set the status of the group to public or private
+                  example: true
+                admin:
+                  type: string
+                  description: Name of user that is creating the group
+                  example: yinkaenoch
+                savingsAmount:
+                  type: number
+                  description: Fixed amount to be saved by all group members
+                  example: 200
+      responses:
+        200:
+          description: Success message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    example: 0
+                  type:
+                    type: string,
+                    example: OK
+                  message:
+                    type: string
+                    example: New user successfully created
+                  data:
+                    type: string
+                    example: {}
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    example: 1
+                  type:
+                    type: string
+                    example: ERR
+                  message:
+                    type: string
+                    example: Server Error
