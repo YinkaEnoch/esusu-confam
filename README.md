@@ -20,5 +20,4 @@ Run `npm start dev` to start the app in development state
 
 ## Documentation
 
-The documentation is [here](https://github.com)
-
+The documentation is available on `/api/v1/docs`
