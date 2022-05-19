@@ -1,6 +1,7 @@
 import "dotenv/config";
 import mongoose from "mongoose";
 import User from "./user.model.js";
+import Group from "./group.model.js";
 
 if (process.env.NODE_ENV === "development") {
   mongoose.set("debug", true);
@@ -11,4 +12,4 @@ mongoose
   .then(() => console.log("MongoDB database connection successful :)"))
   .catch((e) => console.log(e));
 
-export { User };
+export { User, Group };

@@ -38,6 +38,7 @@
     "#Controllers/*": "./controllers/*",
     "#Middlewares/*": "./middlewares/*",
     "#Models/*": "./models/*",
-    "#Services/*": "./services/*"
+    "#Services/*": "./services/*",
+    "#Utils/*": "./utils/*"
   }
 }

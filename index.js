@@ -3,7 +3,8 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import esusuRoute from "./routes/esusu.route.js";
+import UsersRoute from "./routes/users.route.js";
+import GroupsRoute from "./routes/groups.route.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,7 +15,8 @@ app.use(express.json());
 app.use(morgan("combined"));
 
 // API Route
-app.use("/api/v1/esusu/", esusuRoute);
+app.use("/api/v1/esusu/users/", UsersRoute);
+app.use("/api/v1/esusu/groups/", GroupsRoute);
 
 app.use((req, res) => {
   res

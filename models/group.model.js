@@ -2,14 +2,14 @@ import mongoose from "mongoose";
 
 const GroupSchema = new mongoose.Schema(
   {
-    name: {
+    groupName: {
       type: String,
       required: true,
       trim: true,
       lowercase: true,
       unique: true,
     },
-    searchable: {
+    isPublic: {
       type: Boolean,
       default: true,
     },
@@ -22,18 +22,10 @@ const GroupSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    members: [String],
+    members: { type: Map, of: Map },
   },
   { timestamps: true }
 );
-
-// Push admin into the members list
-GroupSchema.pre("save", function (next) {
-  this.members.push(this.admin);
-  next();
-});
-// Add group id to user's group list
-GroupSchema.post("save", function (next) {});
 
 const Group = mongoose.model("Group", GroupSchema);
 export default Group;

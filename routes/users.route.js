@@ -1,6 +1,9 @@
 import { Router } from "express";
-import validateRegInfo from "#Middlewares/register.middleware.js";
-import validateUpdateInfo from "#Middlewares/updateUser.middleware.js";
+import {
+  ValidateRegInfo,
+  ValidateUpdateInfo,
+} from "#Middlewares/index.middleware.js";
+
 import {
   CreateUser,
   GetUser,
@@ -11,12 +14,12 @@ import {
 const Route = Router();
 
 // User registration
-Route.post("/register", validateRegInfo, CreateUser);
+Route.post("/register", ValidateRegInfo, CreateUser);
 
 // Get, Update and Delete user profile
-Route.route("/users/:username")
+Route.route("/:username")
   .get(GetUser)
-  .patch(validateUpdateInfo, UpdateUser)
+  .patch(ValidateUpdateInfo, UpdateUser)
   .delete(DeleteUser);
 
 export default Route;

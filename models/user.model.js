@@ -16,9 +16,10 @@ const UserSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
+      lowercase: true,
       unique: true,
     },
-    groups: [{ type: mongoose.Schema.Types.ObjectId, ref: "Group" }],
+    groups: [String],
   },
   { timestamps: true }
 );
