@@ -23,9 +23,18 @@ const GroupSchema = new mongoose.Schema(
       required: true,
     },
     members: { type: Map, of: Map },
+    numOfMembers: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );
+
+GroupSchema.pre("save", async function (next) {
+  this.numOfMembers = this.members.size;
+  return next();
+});
 
 const Group = mongoose.model("Group", GroupSchema);
 export default Group;

@@ -1,10 +1,10 @@
 import {
-  CreateGroup as CreateGroupService,
   GetGroup as GetGroupService,
   GetAllGroups as GetAllGroupsService,
-  JoinGroup as JoinGroupService,
-  GroupDeposit as GroupDepositService,
-} from "#Services/group.service.js";
+} from "#Services/group/GetGroup.service.js";
+import CreateGroupService from "#Services/group/CreateGroup.service.js";
+import JoinGroupService from "#Services/group/JoinGroup.service.js";
+import GroupDepositService from "#Services/group/GroupDeposit.service.js";
 import respService from "#Utils/responseService.util.js";
 
 const CreateGroup = async (req, res) => {

@@ -1,4 +1,5 @@
 import { User } from "#Models/index.js";
+import SpaceToHypen from "../utils/SpaceToHypen.util.js";
 
 const GetUser = async (username) => {
   try {
@@ -19,6 +20,8 @@ const GetUser = async (username) => {
 
 const CreateUser = async (props) => {
   try {
+    props.username = SpaceToHypen(props.username);
+
     // Check if user exist
     const user = await GetUser(props.username);
 
