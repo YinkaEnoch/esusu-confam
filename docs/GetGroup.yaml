@@ -5,6 +5,13 @@ paths:
         - groups
       summary: Get the profile for a group
       parameters:
+        - in: query
+          name: members
+          required: false
+          example: true
+          description: Return group members as part of result
+          schema:
+            type: string
         - in: path
           name: groupName
           required: true

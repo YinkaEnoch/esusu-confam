@@ -27,6 +27,10 @@ paths:
                   type: number
                   description: Fixed amount to be saved by all group members
                   example: 200
+                maxMember:
+                  type: number
+                  description: The maximum number of members the group will have. Defaults to zero (0) for unlimited members
+                  example: 20
       responses:
         200:
           description: Success message

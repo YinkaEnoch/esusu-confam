@@ -1,7 +1,13 @@
 import { Group, User } from "#Models/index.js";
 import SpaceToHypen from "#Utils/SpaceToHypen.util.js";
 
-const CreateGroup = async ({ admin, isPublic, groupName, savingsAmount }) => {
+const CreateGroup = async ({
+  admin,
+  isPublic,
+  groupName,
+  savingsAmount,
+  maxMember,
+}) => {
   try {
     admin = SpaceToHypen(admin);
     groupName = SpaceToHypen(groupName);
@@ -33,6 +39,7 @@ const CreateGroup = async ({ admin, isPublic, groupName, savingsAmount }) => {
       admin,
       savingsAmount,
       members: { [admin]: { joinedOn: Date.now(), deposits: [] } },
+      maxMember,
     });
     // Save group
     const savedGroup = await newGroup.save();

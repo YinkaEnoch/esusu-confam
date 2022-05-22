@@ -27,6 +27,7 @@ const GroupSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    maxMember: { type: Number, default: 0 },
   },
   { timestamps: true }
 );

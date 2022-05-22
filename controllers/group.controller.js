@@ -13,7 +13,8 @@ const CreateGroup = async (req, res) => {
 };
 
 const GetGroup = async (req, res) => {
-  const resp = await GetGroupService(req.params.groupName);
+  console.log(typeof req.query.members);
+  const resp = await GetGroupService(req.params.groupName, req.query.members);
   respService({ resp, res, statusCode: 200 });
 };
 

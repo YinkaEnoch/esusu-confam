@@ -5,6 +5,7 @@ const groupSchema = Joi.object({
   isPublic: Joi.boolean(),
   savingsAmount: Joi.number().required().min(1),
   admin: Joi.string().required().trim(),
+  maxMember: Joi.number(),
 });
 
 const validateGroupInfo = (req, res, next) => {
